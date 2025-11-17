@@ -649,9 +649,8 @@ span.subtitle {
 }
 
 .project-title-name{
-  font-size: .9rem;
-  font-weight: 600;
-  text-transform: uppercase;
+  font-size: .85rem;
+  text-transform: lowercase;
 }
 
 .project-name {
@@ -661,6 +660,7 @@ span.subtitle {
   font-style: normal;
   font-size: .85rem;
   text-align: right;
+  text-transform: lowercase;
 }
 
 .category-red {
