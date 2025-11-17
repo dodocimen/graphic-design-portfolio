@@ -175,18 +175,16 @@ span.subtitle {
 
 .ghost-btn {
   padding: 0.75rem 1.5rem;
-  border: 1px solid var(--text);
+  border: 2px solid var(--text);
   color: var(--text);
   border-radius: 50px;
   text-decoration: none;
   transition: background 0.3s ease, color 0.3s ease;
   z-index: 999;
-  font-size: 0.8rem;
-  text-transform: lowercase;
 }
 
 .ghost-btn.ideas-btn {
-  border: 1px solid var(--accent);
+  border: 2px solid var(--accent);
   color: var(--accent);
 }
 
@@ -197,6 +195,7 @@ span.subtitle {
 
 /* Add more gaps to "back to all work" buttons */
 .ghost-btn[data-go-home] {
+  padding: 0.75rem 1.5rem;
   margin-top: 2rem;
   display: inline-block;
   background: transparent;
@@ -756,29 +755,10 @@ span.subtitle {
     margin-left: auto;
     margin-right: auto;
     width: fit-content;
-    padding: 0.75rem 1.5rem !important;
-    font-size: 0.8rem !important;
-    text-transform: lowercase !important;
-    border-width: 1px !important;
   }
 
   .project-main .ghost-btn[data-go-home] {
     margin-top: 2rem !important;
-    background: transparent !important;
-    border: 1px solid rgba(255, 255, 255, 0.342) !important;
-    opacity: 0.85 !important;
-  }
-
-  .ghost-btn {
-    padding: 0.75rem 1.5rem !important;
-    font-size: 0.8rem !important;
-    text-transform: lowercase !important;
-    border-width: 1px !important;
-  }
-
-  .scroll-to-top-btn {
-    padding: 0.75rem 1.5rem !important;
-    font-size: 0.8rem !important;
   }
 
   .project-main .row.align-items-start {
@@ -804,6 +784,48 @@ span.subtitle {
 
   .project-meta {
       margin-top: 0.5rem;
+  }
+}
+
+/* Mobile 390px and below - ensure all buttons are uniform */
+@media (max-width: 390px) {
+  /* Force all ghost buttons to match scroll-to-top button styling */
+  .ghost-btn,
+  .pdf-mobile-btn {
+    padding: 0.75rem 1.5rem !important;
+    font-size: 0.8rem !important;
+    text-transform: lowercase !important;
+    border-radius: 50px !important;
+    border-width: 1px !important;
+  }
+
+  /* Back to work button specific styling */
+  .ghost-btn[data-go-home] {
+    margin-top: 2rem !important;
+    background: transparent !important;
+    border: 1px solid rgba(255, 255, 255, 0.342) !important;
+    opacity: 0.85 !important;
+    padding: 0.75rem 1.5rem !important;
+    font-size: 0.8rem !important;
+  }
+
+  /* Scroll to top button */
+  .scroll-to-top-btn {
+    padding: 0.75rem 1.5rem !important;
+    font-size: 0.8rem !important;
+    border: 1px solid rgba(255, 255, 255, 0.342) !important;
+  }
+
+  /* PDF mobile button */
+  .pdf-mobile-btn {
+    padding: 0.75rem 1.5rem !important;
+    font-size: 0.8rem !important;
+  }
+
+  /* Project CTA buttons */
+  .project-main .ghost-btn:not([data-go-home]) {
+    padding: 0.75rem 1.5rem !important;
+    font-size: 0.8rem !important;
   }
 }
 
