@@ -756,10 +756,29 @@ span.subtitle {
     margin-left: auto;
     margin-right: auto;
     width: fit-content;
+    padding: 0.75rem 1.5rem !important;
+    font-size: 0.8rem !important;
+    text-transform: lowercase !important;
+    border-width: 1px !important;
   }
 
   .project-main .ghost-btn[data-go-home] {
     margin-top: 2rem !important;
+    background: transparent !important;
+    border: 1px solid rgba(255, 255, 255, 0.342) !important;
+    opacity: 0.85 !important;
+  }
+
+  .ghost-btn {
+    padding: 0.75rem 1.5rem !important;
+    font-size: 0.8rem !important;
+    text-transform: lowercase !important;
+    border-width: 1px !important;
+  }
+
+  .scroll-to-top-btn {
+    padding: 0.75rem 1.5rem !important;
+    font-size: 0.8rem !important;
   }
 
   .project-main .row.align-items-start {
