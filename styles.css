@@ -285,11 +285,6 @@ span.subtitle {
   height: 190px;
 }
 
-@media (max-width: 768px) {
-  .project-card.feature .project-img {
-      height: 170px;
-  }
-}
 
 
 
@@ -572,30 +567,6 @@ span.subtitle {
 }
 
 /* Mobile optimization for PDF - hide iframe, show button */  
-@media (max-width: 768px) {
-  .pdf-viewer {
-    display: none !important;
-    visibility: hidden;
-    opacity: 0;
-    width: 0;
-    height: 0;
-    pointer-events: none;
-  }
-  
-  .pdf-mobile-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.65rem;
-    text-align: center;
-  }
-  
-  .pdf-viewer-container {
-    background: transparent;
-    padding: 0;
-    text-align: center;
-  }
-}
 
 .modal-backdrop.show {
   opacity: 0.8;
@@ -608,7 +579,8 @@ span.subtitle {
 }
 
 .parallax {
-  height: 60vh;
+  height: 25vh;
+  min-height: 200px;
   background-size: cover;
   background-position: center;
   background-attachment: scroll; /* default, cheaper */
@@ -618,8 +590,11 @@ span.subtitle {
 @media (min-width: 992px) {
   .parallax {
     background-attachment: fixed;
+    height: 30vh;
   }
 }
+
+/* Mobile parallax - even narrower */
 
 .filters {
   font-size: 0.9rem;
@@ -686,14 +661,8 @@ span.subtitle {
   color: var(--accent);
 }
 
-@media (max-width: 900px) {
-  .row.align-items-center {
-      flex-direction: column;
-      text-align: center;
-  }
-}
-
-@media (max-width: 768px) {
+/* Mobile view - 400px and below */
+@media (max-width: 400px) {
   /* Disable all transitions on mobile for better performance */
   *,
   *::before,
@@ -701,8 +670,14 @@ span.subtitle {
     transition: none !important;
   }
 
+  /* Layout adjustments */
+  .row.align-items-center {
+    flex-direction: column;
+    text-align: center;
+  }
+
   .gallery-img {
-      filter: none;
+    filter: none;
   }
 
   .hero-mark {
@@ -724,11 +699,21 @@ span.subtitle {
     text-align: center;
   }
 
+  /* Footer mobile styling */
   .footer-inner {
-    padding: 2.5rem 1.5rem 1.5rem;
+    padding: 1.5rem 1.5rem 1rem;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    gap: 0.5rem;
+  }
+  
+  .footer-label {
+    margin-bottom: 0 !important;
+  }
+  
+  .footer-text {
+    margin-bottom: 0.5rem !important;
   }
 
   .footer-links {
@@ -744,10 +729,31 @@ span.subtitle {
     align-items: center;
     gap: 0.35rem;
   }
+  
+  .site-footer {
+    margin-bottom: 0;
+    padding-bottom: 1rem !important;
+  }
 
-  /* Center all buttons and content in project pages on mobile */
+  /* Project pages mobile styling */
+  .project-description {
+    max-width: 90%;
+    margin-bottom: 2rem;
+  }
+
+  .project-name {
+    font-size: 0.9rem;
+  }
+
+  .project-meta {
+    margin-top: 0.5rem;
+  }
+
   .project-main .d-flex {
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
   }
 
   .project-main .ghost-btn {
@@ -768,28 +774,8 @@ span.subtitle {
   .project-main .project-meta-list {
     justify-content: center;
   }
-}
 
-@media (max-width: 600px) {
-  .project-description {
-      max-width: 90%;
-      margin-bottom: 2rem;
-  }
-}
-
-@media (max-width: 576px) {
-  .project-name {
-      font-size: 0.9rem;
-  }
-
-  .project-meta {
-      margin-top: 0.5rem;
-  }
-}
-
-/* Mobile 390px and below - ensure all buttons are uniform */
-@media (max-width: 390px) {
-  /* Force all ghost buttons to match scroll-to-top button styling */
+  /* Force all buttons to be uniform on mobile */
   .ghost-btn,
   .pdf-mobile-btn {
     padding: 0.75rem 1.5rem !important;
@@ -797,9 +783,11 @@ span.subtitle {
     text-transform: lowercase !important;
     border-radius: 50px !important;
     border-width: 1px !important;
+    display: block !important;
+    margin: 0.5rem auto !important;
+    text-align: center !important;
   }
 
-  /* Back to work button specific styling */
   .ghost-btn[data-go-home] {
     margin-top: 2rem !important;
     background: transparent !important;
@@ -809,23 +797,111 @@ span.subtitle {
     font-size: 0.8rem !important;
   }
 
-  /* Scroll to top button */
   .scroll-to-top-btn {
     padding: 0.75rem 1.5rem !important;
     font-size: 0.8rem !important;
     border: 1px solid rgba(255, 255, 255, 0.342) !important;
+    display: inline-block !important;
+    margin: 0.5rem auto !important;
   }
 
-  /* PDF mobile button */
   .pdf-mobile-btn {
     padding: 0.75rem 1.5rem !important;
     font-size: 0.8rem !important;
+    margin: 0.5rem auto 10px !important;
   }
 
-  /* Project CTA buttons */
   .project-main .ghost-btn:not([data-go-home]) {
     padding: 0.75rem 1.5rem !important;
     font-size: 0.8rem !important;
+  }
+
+  /* Center external modal buttons on mobile */
+  .external-modal-actions .ghost-btn {
+    display: block !important;
+    margin: 0.5rem auto !important;
+  }
+
+  /* Tighten spacing below PDF section and before scroll-to-top on mobile */
+  .scroll-to-top-container {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+  }
+
+  /* Project card image size */
+  .project-card.feature .project-img {
+    height: 170px;
+  }
+
+  /* PDF viewer mobile - hide iframe, show button */
+  .pdf-viewer {
+    display: none !important;
+    visibility: hidden;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+  }
+  
+  .pdf-mobile-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    text-align: center;
+  }
+  
+  .pdf-viewer-container {
+    background: transparent;
+    padding: 0;
+    text-align: center;
+    margin-bottom: 0;
+  }
+  
+  .project-iterations {
+    margin-bottom: 0;
+  }
+
+  /* Parallax mobile */
+  .parallax {
+    height: 20vh;
+    min-height: 150px;
+  }
+
+  /* Lightbox mobile */
+  .lightbox-close {
+    top: 1rem;
+    right: 1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.5rem;
+  }
+  
+  .lightbox-nav {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.5rem;
+  }
+  
+  .lightbox-prev {
+    left: 1rem;
+  }
+  
+  .lightbox-next {
+    right: 1rem;
+  }
+
+  /* External modal mobile */
+  .external-modal-content {
+    padding: 1.5rem;
+  }
+  
+  .external-modal-actions {
+    flex-direction: column;
+  }
+  
+  .external-modal-actions .ghost-btn {
+    max-width: 100%;
   }
 }
 
@@ -916,29 +992,6 @@ span.subtitle {
   right: 2rem;
 }
 
-@media (max-width: 768px) {
-  .lightbox-close {
-    top: 1rem;
-    right: 1rem;
-    width: 2.5rem;
-    height: 2.5rem;
-    font-size: 1.5rem;
-  }
-  
-  .lightbox-nav {
-    width: 2.5rem;
-    height: 2.5rem;
-    font-size: 1.5rem;
-  }
-  
-  .lightbox-prev {
-    left: 1rem;
-  }
-  
-  .lightbox-next {
-    right: 1rem;
-  }
-}
 
 /* External redirect modal */
 .external-modal {
@@ -1006,24 +1059,11 @@ span.subtitle {
   color: var(--text);
 }
 
-@media (max-width: 480px) {
-  .external-modal-content {
-    padding: 1.5rem;
-  }
-  
-  .external-modal-actions {
-    flex-direction: column;
-  }
-  
-  .external-modal-actions .ghost-btn {
-    max-width: 100%;
-  }
-}
 
 /* Scroll to top button */
 .scroll-to-top-container {
-  margin-top: 5rem;
-  padding-top: 2rem;
+  margin-top: 0rem;
+  padding-top: 0rem;
   text-align: center;
 }
 
