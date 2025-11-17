@@ -1093,7 +1093,7 @@ span.subtitle {
 .external-modal-content {
   background: var(--bg);
   border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 8px;
+  border-radius: 1rem;
   padding: 2rem;
   max-width: 420px;
   width: 90%;
