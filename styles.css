@@ -107,6 +107,9 @@ span.subtitle {
   border-radius: 2rem;
   transition: border-color 0.3s ease;
   transition: all 0.3s ease;
+  position: relative;
+  left: 0px;
+
 }
 
 .navbar .nav-link:hover {
@@ -221,6 +224,18 @@ span.subtitle {
   background: transparent;
   color: var(--accent);
   border-color: var(--accent);
+}
+
+/* Custom project CTA group (no Bootstrap utilities) */
+.project-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.project-cta-group .ghost-btn {
+  margin: 0;
 }
 
 /* Ideas & Images CTA - custom pink border */
@@ -670,6 +685,27 @@ span.subtitle {
     transition: none !important;
   }
 
+.work-title{
+  margin: 0 auto;
+}
+
+  body {
+    padding-bottom: 0 !important;
+  }
+
+  body:has(.project-page:not(.d-none)) {
+    padding-bottom: 2rem !important;
+  }
+
+  #home .col-12 {
+    padding: 0 !important;
+  }
+
+  h1,
+  .display-5 {
+    margin: 0 !important;
+  }
+
   /* Layout adjustments */
   .row.align-items-center {
     flex-direction: column;
@@ -732,7 +768,11 @@ span.subtitle {
   
   .site-footer {
     margin-bottom: 0;
-    padding-bottom: 1rem !important;
+    padding-bottom: 0 !important;
+  }
+
+  main.container {
+    padding-bottom: 0 !important;
   }
 
   /* Project pages mobile styling */
@@ -749,30 +789,17 @@ span.subtitle {
     margin-top: 0.5rem;
   }
 
-  .project-main .d-flex {
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  .project-main .ghost-btn {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: fit-content;
-  }
-
-  .project-main .ghost-btn[data-go-home] {
-    margin-top: 2rem !important;
+  .project-main {
+    padding: 0 10px;
+    text-align: left;
   }
 
   .project-main .row.align-items-start {
-    text-align: center;
+    text-align: left;
   }
 
   .project-main .project-meta-list {
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   /* Force all buttons to be uniform on mobile */
@@ -816,10 +843,26 @@ span.subtitle {
     font-size: 0.8rem !important;
   }
 
+  /* Keep paired project buttons grouped horizontally on mobile */
+  .project-cta-group {
+    justify-content: center;
+  }
+
+  .project-cta-group .ghost-btn {
+    display: inline-flex !important;
+    margin: 0 2.5px !important;
+  }
+
   /* Center external modal buttons on mobile */
   .external-modal-actions .ghost-btn {
     display: block !important;
     margin: 0.5rem auto !important;
+  }
+
+  #externalCancel {
+    background: var(--red);
+    color: var(--bg);
+    border-color: var(--red);
   }
 
   /* Tighten spacing below PDF section and before scroll-to-top on mobile */
